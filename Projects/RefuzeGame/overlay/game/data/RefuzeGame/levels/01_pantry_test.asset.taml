@@ -1,0 +1,9 @@
+<LevelAsset
+    AssetName="01_pantry_test"
+    AssetDescription="Phase 2 spike: pantry_32 interior at 01.pantry InteriorInstance transform."
+    LevelFile="@assetFile=01_pantry_test.mis"
+    LevelName="01 Pantry Test"
+    PostFXPresetFile="@assetFile=01_pantry_test.postfxpreset.tscript"
+    gameModesNames="ExampleGameMode"
+    staticObjectAssetDependency0="@asset=RefuzeGame:pantry_32"
+    VersionId="1"/>

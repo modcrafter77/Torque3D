@@ -48,6 +48,9 @@ function RefuzeGame::onDestroy(%this)
 
 function RefuzeGame::initServer(%this)
 {
+   if (isFile("./scripts/server/pantry_test.tscript"))
+      exec("./scripts/server/pantry_test.tscript");
+
    // Placeholder for future gameplay server scripts from data_dump.
    if (isFile("./scripts/server/bootstrap.tscript"))
       exec("./scripts/server/bootstrap.tscript");

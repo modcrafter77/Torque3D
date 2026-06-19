@@ -1,0 +1,105 @@
+// Phase 2: pantry interior alignment helpers (console).
+
+$RefuzeGame::PantryTestLevel = "RefuzeGame:01_pantry_test";
+
+// Legacy 01.pantry.mis reference transforms.
+$RefuzeGame::PantryInteriorPos = "411.095 377.224 290.589";
+$RefuzeGame::PantrySpawnPos = "451.747 316.426 250.562";
+
+// pantry_32.meta.json local bounding box (from dif2t3d).
+$RefuzeGame::PantryBBoxMin = "-147.0625 -66.875 -104.5625";
+$RefuzeGame::PantryBBoxMax = "79.46875 66.0625 -4.9375";
+
+function refuzeStartPantryTest()
+{
+   if (!AssetDatabase.isDeclaredAsset($RefuzeGame::PantryTestLevel))
+   {
+      error("RefuzeGame: level asset not found:" SPC $RefuzeGame::PantryTestLevel);
+      error("  Run setupOverlay.bat and ensure levels/01_pantry_test.asset.taml exists.");
+      return;
+   }
+
+   StartGame($RefuzeGame::PantryTestLevel, "SinglePlayer");
+}
+
+function refuzeVerifyPantryAlignment()
+{
+   if (!isObject(PantryInterior))
+   {
+      error("RefuzeGame: PantryInterior TSStatic not found. Load 01_pantry_test first.");
+      return;
+   }
+
+   %pos = PantryInterior.getPosition();
+   %ref = $RefuzeGame::PantryInteriorPos;
+   %delta = refuzeVecSub(%pos, %ref);
+   %dist = refuzeVecLen(%delta);
+
+   echo("=== Refuze pantry alignment ===");
+   echo("Interior position:" SPC %pos);
+   echo("Expected:" SPC %ref);
+   echo("Delta:" SPC %delta SPC "(len" SPC %dist @ ")");
+
+   if (%dist < 0.01)
+      echo("PASS: InteriorInstance position matches 01.pantry.mis");
+   else
+      warn("FAIL: Interior position drift");
+
+   if (isObject(PantryPlayerSpawn))
+   {
+      %spawn = PantryPlayerSpawn.getPosition();
+      %spawnRef = $RefuzeGame::PantrySpawnPos;
+      %spawnDelta = refuzeVecSub(%spawn, %spawnRef);
+      %spawnDist = refuzeVecLen(%spawnDelta);
+
+      echo("Spawn position:" SPC %spawn);
+      echo("Expected:" SPC %spawnRef);
+      echo("Delta:" SPC %spawnDelta SPC "(len" SPC %spawnDist @ ")");
+
+      if (%spawnDist < 0.01)
+         echo("PASS: Player spawn matches 01.pantry.mis");
+      else
+         warn("FAIL: Spawn position drift");
+
+      %bboxMin = refuzeVecAdd(%pos, $RefuzeGame::PantryBBoxMin);
+      %bboxMax = refuzeVecAdd(%pos, $RefuzeGame::PantryBBoxMax);
+      echo("Expected world AABB min:" SPC %bboxMin);
+      echo("Expected world AABB max:" SPC %bboxMax);
+
+      if (refuzePointInAabb(%spawn, %bboxMin, %bboxMax))
+         echo("PASS: Spawn is inside interior bounding box");
+      else
+         warn("FAIL: Spawn outside interior bounding box");
+   }
+   else
+      warn("PantryPlayerSpawn not found in scene");
+}
+
+function refuzeVecSub(%a, %b)
+{
+   return (getWord(%a, 0) - getWord(%b, 0)) SPC
+        (getWord(%a, 1) - getWord(%b, 1)) SPC
+        (getWord(%a, 2) - getWord(%b, 2));
+}
+
+function refuzeVecAdd(%a, %b)
+{
+   return (getWord(%a, 0) + getWord(%b, 0)) SPC
+        (getWord(%a, 1) + getWord(%b, 1)) SPC
+        (getWord(%a, 2) + getWord(%b, 2));
+}
+
+function refuzeVecLen(%v)
+{
+   %x = getWord(%v, 0);
+   %y = getWord(%v, 1);
+   %z = getWord(%v, 2);
+   return mSqrt(%x * %x + %y * %y + %z * %z);
+}
+
+function refuzePointInAabb(%point, %min, %max)
+{
+   return getWord(%point, 0) >= getWord(%min, 0) && getWord(%point, 0) <= getWord(%max, 0)
+       && getWord(%point, 1) >= getWord(%min, 1) && getWord(%point, 1) <= getWord(%max, 1)
+       && getWord(%point, 2) >= getWord(%min, 2) && getWord(%point, 2) <= getWord(%max, 2);
+}

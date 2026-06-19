@@ -13,6 +13,6 @@ if not exist "%TOOL%" (
   cargo build --release || exit /b 1
   popd
 )
-if "%OUT%"=="" set "OUT=%~dp1%~n1"
+if "%OUT%"=="" set "OUT=%~dp0overlay\game\data\RefuzeGame\art\interiors\%~n1"
 "%TOOL%" "%SRC%" -o "%OUT%"
 exit /b %ERRORLEVEL%

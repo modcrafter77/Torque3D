@@ -8,8 +8,7 @@ pub fn write_shape_asset(path: &Path, asset_name: &str) -> Result<()> {
     canSave="true"
     canSaveDynamicFields="true"
     AssetName="{name}"
-    fileName="@assetFile={dae}"
-    constuctorFileName="" />
+    fileName="@assetFile={dae}" />
 "#,
         name = asset_name,
         dae = dae_name

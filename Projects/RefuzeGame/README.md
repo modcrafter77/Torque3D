@@ -39,3 +39,14 @@ Legacy data is exposed via directory junctions: `game/common/`, `game/starter.ga
 Run `RefuzeGame.exe` from `My Projects/RefuzeGame/game/`.
 BaseGame main menu should appear; TorqueScript console (`~`) should work.
 Bootstrap mission: `data/RefuzeGame/levels/empty.mis`.
+
+## Phase 2: pantry interior in T3D
+
+1. Convert interior (if needed):
+   `Projects\RefuzeGame\convert_dif.bat path\to\pantry_32.dif`
+2. Run `setupOverlay.bat` after overlay changes.
+3. Launch game, open console (`~`):
+   - `refuzeStartPantryTest();` — load test level
+   - `refuzeVerifyPantryAlignment();` — check transforms vs `01.pantry.mis`
+
+Or pick **01 Pantry Test** from the level chooser / World Editor.

@@ -1,0 +1,69 @@
+// Phase 2 spike: converted pantry_32 interior at legacy InteriorInstance transform.
+// Source: starter.game/data/missions/01.pantry.mis
+
+//--- OBJECT WRITE BEGIN ---
+new Scene(PantryTest) {
+   isEditing = "1";
+   gameModes = "ExampleGameMode";
+      enabled = "1";
+
+   new LevelInfo(theLevelInfo) {
+      levelName = "01 Pantry Test";
+      FogColor = "0.5 0.5 0.55 1";
+      fogDensityOffset = "700";
+      canvasClearColor = "0.05 0.05 0.08 255";
+      visibleDistance = "2000";
+      soundAmbience = "AudioAmbienceDefault";
+         enabled = "1";
+   };
+
+   new Sun(theSun) {
+      azimuth = "135";
+      elevation = "45";
+      color = "1 0.95 0.9 1";
+      ambient = "0.35 0.4 0.45 1";
+      shadowDistance = "400";
+      logWeight = "0.9";
+         enabled = "1";
+   };
+
+   new Skylight(SkyAmbient) {
+      position = "411 377 250";
+         enabled = "1";
+   };
+
+   new TSStatic(PantryInterior) {
+      shapeAsset = "RefuzeGame:pantry_32";
+      playAmbient = "0";
+      receiveSunLight = "1";
+      receiveLMLighting = "1";
+      collisionType = "Collision Mesh";
+      decalType = "Collision Mesh";
+      allowPlayerStep = "1";
+      renderNormals = "0";
+      forceDetail = "-1";
+      position = "411.095 377.224 290.589";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      isRenderEnabled = "true";
+      canSaveDynamicFields = "1";
+   };
+
+   new SimGroup(CameraSpawnPoints) {
+         enabled = "1";
+
+      new SpawnSphere(PantryPlayerSpawn) {
+         radius = "1";
+         sphereWeight = "1";
+         indoorWeight = "1";
+         outdoorWeight = "1";
+         dataBlock = "SpawnSphereMarker";
+         position = "451.747 316.426 250.562";
+         rotation = "0 0 -1 6.62892";
+            enabled = "1";
+            homingCount = "0";
+            lockCount = "0";
+      };
+   };
+};
+//--- OBJECT WRITE END ---

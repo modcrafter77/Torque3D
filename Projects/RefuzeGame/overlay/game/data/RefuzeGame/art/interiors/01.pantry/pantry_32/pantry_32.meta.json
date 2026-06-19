@@ -1,0 +1,32 @@
+{
+  "source_dif": "\\\\?\\C:\\projects\\gamedev\\Refuze\\old_res_unpacked\\starter.game\\data\\interiors\\01.pantry\\pantry_32.dif",
+  "detail_level": 0,
+  "bounding_box_min": [
+    -147.0625,
+    -66.875,
+    -104.5625
+  ],
+  "bounding_box_max": [
+    79.46875,
+    66.0625,
+    -4.9375
+  ],
+  "render_triangles": 4344,
+  "collision_triangles": 4364,
+  "materials": [
+    "ddd/concrete.hi.base",
+    "ddd/parquet.hi.base",
+    "ddd/ceiling.hi.base",
+    "ddd/wall_down.hi.base",
+    "ddd/wall_middle.hi.base",
+    "ddd/wall_up.hi.base",
+    "ddd/wardrobe.hi.base",
+    "ddd/plinth.hi.base",
+    "ddd/door.hi.base",
+    "ddd/door_center.hi.base",
+    "ddd/hatch.hi.base",
+    "ddd/box.hi.base"
+  ],
+  "triggers": [],
+  "sub_object_count": 0
+}

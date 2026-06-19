@@ -1,0 +1,5 @@
+$PostFX::HDRPostFX::Enabled = 1;
+$PostFX::HDRPostFX::exposureValue = 1;
+$PostFX::HDRPostFX::whitePoint = 1;
+$PostFX::HDRPostFX::tonemapMode = "ACES";
+$PostFX::HDRPostFX::enableBloom = 0;
