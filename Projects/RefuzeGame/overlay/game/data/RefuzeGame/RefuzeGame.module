@@ -1,0 +1,13 @@
+<ModuleDefinition
+    ModuleId="RefuzeGame"
+    VersionId="1"
+    Description="Home Wars / Refuze gameplay module (T3D port bootstrap)."
+    ScriptFile="RefuzeGame.tscript"
+    CreateFunction="onCreate"
+    DestroyFunction="onDestroy"
+    Dependencies="Core_ClientServer=1,UI=1"
+    Group="Game">
+    <DeclaredAssets
+        Extension="asset.taml"
+        Recurse="true"/>
+</ModuleDefinition>

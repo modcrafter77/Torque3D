@@ -1,0 +1,20 @@
+// Torque3D mission
+// Phase 0 bootstrap: empty scene for engine smoke test.
+
+new SimGroup(MissionGroup) {
+   canSave = "1";
+   canSaveDynamicFields = "1";
+};
+
+new LevelInfo(TheLevelInfo) {
+   canvasClearColor = "0 0 0 255";
+   fogColor = "0.5 0.5 0.5 1";
+   fogDensity = "0";
+   visibleDistance = "1000";
+};
+
+new Camera(CameraStart) {
+   position = "0 0 10";
+   rotation = "1 0 0 0";
+   dataBlock = "Observer";
+};

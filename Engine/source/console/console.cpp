@@ -1573,6 +1573,8 @@ bool isScriptFile(const char* pFilePath)
       || Torque::FS::IsFile(pFilePath + String(".mis.dso"))
       || Torque::FS::IsFile(pFilePath + String(".gui"))
       || Torque::FS::IsFile(pFilePath + String(".gui.dso"))
+      || Torque::FS::IsFile(pFilePath + String(".cs"))
+      || Torque::FS::IsFile(pFilePath + String(".cs.dso"))
       || Torque::FS::IsFile(pFilePath + String("." TORQUE_SCRIPT_EXTENSION))
       || Torque::FS::IsFile(pFilePath + String("." TORQUE_SCRIPT_EXTENSION) + String(".dso")));
 }

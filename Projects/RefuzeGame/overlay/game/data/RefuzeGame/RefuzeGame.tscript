@@ -1,0 +1,126 @@
+// RefuzeGame module bootstrap (phase 0).
+// Canonical entry for future server/client/datablock/level registration.
+
+$RefuzeGame::DataDumpRoot = "../../../refuze/data_dump";
+
+function RefuzeGame::resolveDataDumpRoot()
+{
+   if ($RefuzeGame::DataDumpRoot !$= "" && isDirectory($RefuzeGame::DataDumpRoot))
+      return $RefuzeGame::DataDumpRoot;
+
+   %paths = "../../../refuze/data_dump" TAB "../../../../refuze/data_dump" TAB "C:/projects/gamedev/Refuze/refuze/data_dump";
+   for (%i = 0; %i < getFieldCount(%paths); %i++)
+   {
+      %path = getField(%paths, %i);
+      if (isDirectory(%path))
+         return %path;
+   }
+
+   return "";
+}
+
+function RefuzeGame::setupLegacyModPaths(%this)
+{
+   %root = RefuzeGame.resolveDataDumpRoot();
+
+   if (isDirectory("common") && isDirectory("starter.game"))
+   {
+      echo("RefuzeGame: legacy mod paths available (common/, starter.game/)");
+      if (%root !$= "")
+         echo("  data_dump root:" SPC %root);
+      return;
+   }
+
+   if (%root !$= "")
+      warn("RefuzeGame: run setupOverlay.bat to create junctions to data_dump.");
+   else
+      warn("RefuzeGame: data_dump not found. Set $RefuzeGame::DataDumpRoot or run setupOverlay.bat.");
+}
+
+function RefuzeGame::onCreate(%this)
+{
+   %this.setupLegacyModPaths();
+}
+
+function RefuzeGame::onDestroy(%this)
+{
+}
+
+function RefuzeGame::initServer(%this)
+{
+   // Placeholder for future gameplay server scripts from data_dump.
+   if (isFile("./scripts/server/bootstrap.tscript"))
+      exec("./scripts/server/bootstrap.tscript");
+
+   if (!isObject(DatablockFilesList))
+   {
+      warn("RefuzeGame::initServer - DatablockFilesList is not ready yet.");
+      return;
+   }
+
+   // Register module-local datablocks when they appear (phase 2+).
+   for (%file = findFirstFile("./scripts/datablocks/*." @ $TorqueScriptFileExtension);
+        %file !$= "";
+        %file = findNextFile("./scripts/datablocks/*." @ $TorqueScriptFileExtension))
+   {
+      DatablockFilesList.add(%file);
+   }
+
+   for (%file = findFirstFile("./scripts/datablocks/*.cs");
+        %file !$= "";
+        %file = findNextFile("./scripts/datablocks/*.cs"))
+   {
+      DatablockFilesList.add(%file);
+   }
+
+   if (!isObject(LevelFilesList))
+      new ArrayObject(LevelFilesList);
+
+   // Legacy missions via game-root junctions (starter.game/ -> data_dump).
+   for (%file = findFirstFile("starter.game/data/missions/*.mis");
+        %file !$= "";
+        %file = findNextFile("starter.game/data/missions/*.mis"))
+   {
+      LevelFilesList.add(%file);
+   }
+
+   // Empty bootstrap level in this module.
+   for (%file = findFirstFile("./levels/*.mis");
+        %file !$= "";
+        %file = findNextFile("./levels/*.mis"))
+   {
+      LevelFilesList.add(%file);
+   }
+}
+
+function RefuzeGame::onCreateGameServer(%this)
+{
+}
+
+function RefuzeGame::onDestroyGameServer(%this)
+{
+}
+
+function RefuzeGame::initClient(%this)
+{
+   if ($Server::Dedicated)
+      return;
+
+   if (isFile("./scripts/client/bootstrap.tscript"))
+      exec("./scripts/client/bootstrap.tscript");
+
+   for (%file = findFirstFile("./scripts/gui/*.gui");
+        %file !$= "";
+        %file = findNextFile("./scripts/gui/*.gui"))
+   {
+      exec(%file);
+   }
+}
+
+function RefuzeGame::onCreateClientConnection(%this)
+{
+}
+
+function RefuzeGame::onDestroyClientConnection(%this)
+{
+}
