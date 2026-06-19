@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="wall_middle_hi_base"
+    materialDefinitionName="wall_middle.hi.base"
+    imageMap0="@asset=RefuzeGame:wall_middle_hi_base_ALBEDO"
+    originalFilePath="wall_middle.hi.base">
+    <Material
+        Name="wall_middle.hi.base"
+        mapTo="wall_middle.hi.base"
+        originalAssetName="wall_middle_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:wall_middle_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

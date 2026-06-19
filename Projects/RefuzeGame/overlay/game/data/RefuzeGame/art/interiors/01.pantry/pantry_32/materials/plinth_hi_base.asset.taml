@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="plinth_hi_base"
+    materialDefinitionName="plinth.hi.base"
+    imageMap0="@asset=RefuzeGame:plinth_hi_base_ALBEDO"
+    originalFilePath="plinth.hi.base">
+    <Material
+        Name="plinth.hi.base"
+        mapTo="plinth.hi.base"
+        originalAssetName="plinth_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:plinth_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

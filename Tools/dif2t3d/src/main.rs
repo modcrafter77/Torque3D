@@ -6,6 +6,7 @@ use std::path::{Path, PathBuf};
 
 mod dae;
 mod maps;
+mod materials;
 mod mesh;
 mod taml;
 
@@ -45,8 +46,18 @@ struct RoomMeta {
     render_triangles: usize,
     collision_triangles: usize,
     materials: Vec<String>,
+    material_assets: Vec<MaterialAssetMeta>,
     triggers: Vec<TriggerMeta>,
     sub_object_count: usize,
+}
+
+#[derive(Serialize)]
+struct MaterialAssetMeta {
+    slot: String,
+    map_to: String,
+    material_asset: String,
+    image_asset: String,
+    image_file: String,
 }
 
 #[derive(Serialize)]
@@ -87,6 +98,19 @@ fn main() -> Result<()> {
     };
 
     let texture_paths = resolve_texture_paths(args.maps_dir.as_deref(), &render.material_slots)?;
+
+    let material_exports = if let Some(paths) = texture_paths.as_ref() {
+        let exports = materials::write_material_assets(&output_dir, &render.material_slots, paths)?;
+        for export in &exports {
+            println!(
+                "  material {} -> RefuzeGame:{} (mapTo {})",
+                export.slot_name, export.asset_name, export.map_to
+            );
+        }
+        exports
+    } else {
+        Vec::new()
+    };
 
     let dae_path = output_dir.join(format!("{}.dae", stem));
     dae::write_dae(
@@ -130,6 +154,16 @@ fn main() -> Result<()> {
         render_triangles: render.triangles.len(),
         collision_triangles: collision.triangles.len(),
         materials: render.material_slots.clone(),
+        material_assets: material_exports
+            .iter()
+            .map(|export| MaterialAssetMeta {
+                slot: export.slot_name.clone(),
+                map_to: export.map_to.clone(),
+                material_asset: format!("RefuzeGame:{}", export.asset_name),
+                image_asset: format!("RefuzeGame:{}", export.image_asset_name),
+                image_file: export.image_file.clone(),
+            })
+            .collect(),
         triggers: dif
             .triggers
             .iter()
@@ -154,11 +188,12 @@ fn main() -> Result<()> {
         output_dir.display()
     );
     println!(
-        "  detail={} render_tris={} collision_tris={} materials={} triggers={}",
+        "  detail={} render_tris={} collision_tris={} materials={} material_assets={} triggers={}",
         detail,
         render.triangles.len(),
         collision.triangles.len(),
         render.material_slots.len(),
+        material_exports.len(),
         meta.triggers.len()
     );
     println!("  {}", dae_path.display());

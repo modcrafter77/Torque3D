@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="hatch_hi_base"
+    materialDefinitionName="hatch.hi.base"
+    imageMap0="@asset=RefuzeGame:hatch_hi_base_ALBEDO"
+    originalFilePath="hatch.hi.base">
+    <Material
+        Name="hatch.hi.base"
+        mapTo="hatch.hi.base"
+        originalAssetName="hatch_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:hatch_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

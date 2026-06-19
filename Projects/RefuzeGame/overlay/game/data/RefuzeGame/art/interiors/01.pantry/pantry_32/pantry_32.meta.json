@@ -27,6 +27,92 @@
     "ddd/hatch.hi.base",
     "ddd/box.hi.base"
   ],
+  "material_assets": [
+    {
+      "slot": "ddd/concrete.hi.base",
+      "map_to": "concrete.hi.base",
+      "material_asset": "RefuzeGame:concrete_hi_base",
+      "image_asset": "RefuzeGame:concrete_hi_base_ALBEDO",
+      "image_file": "concrete.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/parquet.hi.base",
+      "map_to": "parquet.hi.base",
+      "material_asset": "RefuzeGame:parquet_hi_base",
+      "image_asset": "RefuzeGame:parquet_hi_base_ALBEDO",
+      "image_file": "parquet.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/ceiling.hi.base",
+      "map_to": "ceiling.hi.base",
+      "material_asset": "RefuzeGame:ceiling_hi_base",
+      "image_asset": "RefuzeGame:ceiling_hi_base_ALBEDO",
+      "image_file": "ceiling.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/wall_down.hi.base",
+      "map_to": "wall_down.hi.base",
+      "material_asset": "RefuzeGame:wall_down_hi_base",
+      "image_asset": "RefuzeGame:wall_down_hi_base_ALBEDO",
+      "image_file": "wall_down.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/wall_middle.hi.base",
+      "map_to": "wall_middle.hi.base",
+      "material_asset": "RefuzeGame:wall_middle_hi_base",
+      "image_asset": "RefuzeGame:wall_middle_hi_base_ALBEDO",
+      "image_file": "wall_middle.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/wall_up.hi.base",
+      "map_to": "wall_up.hi.base",
+      "material_asset": "RefuzeGame:wall_up_hi_base",
+      "image_asset": "RefuzeGame:wall_up_hi_base_ALBEDO",
+      "image_file": "wall_up.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/wardrobe.hi.base",
+      "map_to": "wardrobe.hi.base",
+      "material_asset": "RefuzeGame:wardrobe_hi_base",
+      "image_asset": "RefuzeGame:wardrobe_hi_base_ALBEDO",
+      "image_file": "wardrobe.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/plinth.hi.base",
+      "map_to": "plinth.hi.base",
+      "material_asset": "RefuzeGame:plinth_hi_base",
+      "image_asset": "RefuzeGame:plinth_hi_base_ALBEDO",
+      "image_file": "plinth.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/door.hi.base",
+      "map_to": "door.hi.base",
+      "material_asset": "RefuzeGame:door_hi_base",
+      "image_asset": "RefuzeGame:door_hi_base_ALBEDO",
+      "image_file": "door.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/door_center.hi.base",
+      "map_to": "door_center.hi.base",
+      "material_asset": "RefuzeGame:door_center_hi_base",
+      "image_asset": "RefuzeGame:door_center_hi_base_ALBEDO",
+      "image_file": "door_center.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/hatch.hi.base",
+      "map_to": "hatch.hi.base",
+      "material_asset": "RefuzeGame:hatch_hi_base",
+      "image_asset": "RefuzeGame:hatch_hi_base_ALBEDO",
+      "image_file": "hatch.hi.base.jpg"
+    },
+    {
+      "slot": "ddd/box.hi.base",
+      "map_to": "box.hi.base",
+      "material_asset": "RefuzeGame:box_hi_base",
+      "image_asset": "RefuzeGame:box_hi_base_ALBEDO",
+      "image_file": "box.hi.base.jpg"
+    }
+  ],
   "triggers": [],
   "sub_object_count": 0
 }

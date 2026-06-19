@@ -25,6 +25,7 @@ Options:
 - `--los` / `--no-los` — emit duplicate `LOS-10` collision mesh (default: on)
 - `--blender-preview` / `--no-blender-preview` — write `*_preview.dae` with outward normals (default: on)
 - `--maps-dir PATH` — embed level texture images in DAE (MissionInfo.maps)
+- `--maps-dir` also writes T3D `ImageAsset` + `MaterialAsset` stubs under `materials/`
 
 ## Output
 

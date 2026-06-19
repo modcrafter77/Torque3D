@@ -1,0 +1,3 @@
+<ImageAsset
+    AssetName="parquet_hi_base_ALBEDO"
+    imageFile="@assetFile=parquet.hi.base.jpg" />

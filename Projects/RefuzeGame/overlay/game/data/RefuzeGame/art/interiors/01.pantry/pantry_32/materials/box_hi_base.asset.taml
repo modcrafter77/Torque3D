@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="box_hi_base"
+    materialDefinitionName="box.hi.base"
+    imageMap0="@asset=RefuzeGame:box_hi_base_ALBEDO"
+    originalFilePath="box.hi.base">
+    <Material
+        Name="box.hi.base"
+        mapTo="box.hi.base"
+        originalAssetName="box_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:box_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

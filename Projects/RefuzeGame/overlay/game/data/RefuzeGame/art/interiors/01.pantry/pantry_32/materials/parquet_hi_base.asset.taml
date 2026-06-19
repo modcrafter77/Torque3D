@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="parquet_hi_base"
+    materialDefinitionName="parquet.hi.base"
+    imageMap0="@asset=RefuzeGame:parquet_hi_base_ALBEDO"
+    originalFilePath="parquet.hi.base">
+    <Material
+        Name="parquet.hi.base"
+        mapTo="parquet.hi.base"
+        originalAssetName="parquet_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:parquet_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="ceiling_hi_base"
+    materialDefinitionName="ceiling.hi.base"
+    imageMap0="@asset=RefuzeGame:ceiling_hi_base_ALBEDO"
+    originalFilePath="ceiling.hi.base">
+    <Material
+        Name="ceiling.hi.base"
+        mapTo="ceiling.hi.base"
+        originalAssetName="ceiling_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:ceiling_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

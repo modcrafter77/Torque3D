@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="concrete_hi_base"
+    materialDefinitionName="concrete.hi.base"
+    imageMap0="@asset=RefuzeGame:concrete_hi_base_ALBEDO"
+    originalFilePath="concrete.hi.base">
+    <Material
+        Name="concrete.hi.base"
+        mapTo="concrete.hi.base"
+        originalAssetName="concrete_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:concrete_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

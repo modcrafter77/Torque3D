@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="door_hi_base"
+    materialDefinitionName="door.hi.base"
+    imageMap0="@asset=RefuzeGame:door_hi_base_ALBEDO"
+    originalFilePath="door.hi.base">
+    <Material
+        Name="door.hi.base"
+        mapTo="door.hi.base"
+        originalAssetName="door_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:door_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>

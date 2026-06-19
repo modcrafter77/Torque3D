@@ -1,0 +1,15 @@
+<MaterialAsset
+    AssetName="wardrobe_hi_base"
+    materialDefinitionName="wardrobe.hi.base"
+    imageMap0="@asset=RefuzeGame:wardrobe_hi_base_ALBEDO"
+    originalFilePath="wardrobe.hi.base">
+    <Material
+        Name="wardrobe.hi.base"
+        mapTo="wardrobe.hi.base"
+        originalAssetName="wardrobe_hi_base">
+        <Material.Stages>
+            <Stages_beginarray
+                DiffuseMapAsset="RefuzeGame:wardrobe_hi_base_ALBEDO"/>
+        </Material.Stages>
+    </Material>
+</MaterialAsset>
